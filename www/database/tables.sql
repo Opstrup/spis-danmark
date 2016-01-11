@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS plants (id integer, name text, name_latin text, description text, history text);
+CREATE TABLE IF NOT EXISTS photos (id integer, plant_id integer, photo_url text);
+CREATE TABLE IF NOT EXISTS applications (id integer, application text);
+CREATE TABLE IF NOT EXISTS plant_applications (id integer, plant_id integer, application_id integer);
+CREATE TABLE IF NOT EXISTS colors (id integer, color text);
+CREATE TABLE IF NOT EXISTS plant_colors (id integer, plant_id integer, color_id integer);
+CREATE TABLE IF NOT EXISTS habitats (id integer, habitat text);
+CREATE TABLE IF NOT EXISTS plant_habitats (id integer, plant_id integer, habitat_id integer);
+CREATE TABLE IF NOT EXISTS seasons (id integer, season text);
+CREATE TABLE IF NOT EXISTS plant_seasons (id integer, plant_id integer, season_id integer);
+CREATE TABLE IF NOT EXISTS sizes (id integer, size text);
+CREATE TABLE IF NOT EXISTS plant_sizes (id integer, plant_id integer, size_id integer);

@@ -1,0 +1,20 @@
+<ion-view view-title="{{ plant.getName }}">
+    <div class="bar bar-header bar-stable">
+        <h1 class="title">{{ plant.getName }}</h1>
+    </div>
+    <ion-nav-bar>
+        <ion-nav-back-button class="button-clear" ng-click="showPlantDetailView(plant.getID)">
+            <i class="ion-ios-arrow-left"></i> Tilbage
+        </ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-content class="has-header has-tabs" scroll="false">
+
+        <ion-slide-box pager-click="navSlide(index)">
+            <ion-slide ng-repeat="photo in plant.getPhoto">
+                <img class="full-image" ng-src="{{ photo }}">
+            </ion-slide>
+        </ion-slide-box>
+
+    </ion-content>
+</ion-view>

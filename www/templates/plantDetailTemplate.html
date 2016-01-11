@@ -1,0 +1,117 @@
+<ion-view view-title="{{ plant.getName }}">
+    <div class="bar bar-header bar-stable">
+        <h1 class="title">{{ plant.getName }}</h1>
+    </div>
+    <ion-nav-bar>
+        <ion-nav-back-button class="button-clear" ng-click="showPlantListView()">
+            <i class="ion-ios-arrow-left"></i> Plante liste
+        </ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-content class="has-header" scroll="true">
+
+        <div class="list card">
+
+            <div class="item item-avatar item-icon-right item-icon-right">
+                <img class="full-image" ng-src="{{ plant.getPhoto[0] }}">
+                <h2>{{ plant.getName }}</h2>
+                <p>{{ plant.getNameLatin }}</p>
+                <i class="icon ion-ios-book-outline"></i>
+                <i class="icon ion-ios-location-outline" style="right: 60px"></i>
+            </div>
+
+            <div class="item item-body">
+
+                <div id="detail-photo-div">
+                    <img id="detail-photo" class="full-image" ng-src="{{ plant.getPhoto[0] }}"
+                         ng-click="showPlantPhotos(plant.getID)">
+                </div>
+
+                <br>
+
+                <b>Beskrivelse</b>
+                <div class="col">
+                    <p ng-click="showPlantDescriptionView(plant.getID)">
+                        {{ shortPlantDescription }}...
+                    </p>
+                </div>
+                <br>
+
+                <b>Historie</b>
+                <div class="col">
+                    <p ng-click="showPlantHistoryView(plant.getID)">
+                        {{ shortHistory }}...
+                    </p>
+                </div>
+                <br>
+
+                <b>Kendetegn</b>
+                <p>
+                    Farver <br>
+                <div class="col">
+                    <div ng-class="color" ng-repeat="color in plant.getColor"></div>
+                </div>
+                </p>
+
+                <br>
+
+                <p>Sæson</p>
+
+                <div class="row" ng-repeat="season in plant.getSeason" ng-if="$index % 2 === 0">
+
+                    <div class="col col-50" ng-if="$index <= plant.getSeason.length">
+                        <div class="season-photo-wrapper">
+                            <img class="season-photo" ng-src="{{ seasonPhotos[plant.getSeason[$index]] }}">
+                        </div>
+                        <div class="photo-text">{{ plant.getSeason[$index] }}</div>
+                    </div>
+
+                    <div class="col col-50" ng-if="$index + 1 <= plant.getSeason.length">
+                        <div class="season-photo-wrapper">
+                            <img class="season-photo" ng-src="{{ seasonPhotos[plant.getSeason[$index + 1]] }}">
+                        </div>
+                        <div class="photo-text">{{ plant.getSeason[$index + 1] }}</div>
+                    </div>
+
+                </div>
+
+                <p>Levested</p>
+
+                <div class="row" ng-repeat="habitat in plant.getHabitat" ng-if="$index % 4 === 0">
+
+                    <div class="col col-25" ng-if="$index <= plant.getHabitat.length">
+                        <div class="habitat-photo-wrapper">
+                            <img class="habitat-photo" ng-src="{{ habitatPhotos[plant.getHabitat[$index]] }}">
+                        </div>
+                        <div class="photo-text">{{ plant.getHabitat[$index] }}</div>
+                    </div>
+
+                    <div class="col col-25" ng-if="$index + 1 <= plant.getHabitat.length">
+                        <div class="habitat-photo-wrapper">
+                            <img class="habitat-photo" ng-src="{{ habitatPhotos[plant.getHabitat[$index + 1]] }}">
+                        </div>
+                        <div class="photo-text">{{ plant.getHabitat[$index + 1] }}</div>
+                    </div>
+
+                    <div class="col col-25" ng-if="$index + 2 <= plant.getHabitat.length">
+                        <div class="habitat-photo-wrapper">
+                            <img class="habitat-photo" ng-src="{{ habitatPhotos[plant.getHabitat[$index + 2]] }}">
+                        </div>
+                        <div class="photo-text">{{ plant.getHabitat[$index + 2] }}</div>
+                    </div>
+
+                    <div class="col col-25" ng-if="$index + 3 <= plant.getHabitat.length">
+                        <div class="habitat-photo-wrapper">
+                            <img class="habitat-photo" ng-src="{{ habitatPhotos[plant.getHabitat[$index + 3]] }}">
+                        </div>
+                        <div class="photo-text">{{ plant.getHabitat[$index + 3] }}</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,107 @@
+/**
+ * Created by Opstrup on 30/12/2015.
+ */
+
+#detail-photo-div {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+#detail-photo {
+  position: absolute;
+}
+
+.color-circle {
+  float: left;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+}
+
+.red {
+  @extend .color-circle;
+  background: red;
+}
+
+.yellow {
+  @extend .color-circle;
+  background: yellow;
+}
+
+.blue {
+  @extend .color-circle;
+  background: blue;
+}
+
+.black {
+  @extend .color-circle;
+  background: black;
+}
+
+.green {
+  @extend .color-circle;
+  background: darkgreen;
+}
+
+.brown {
+  @extend .color-circle;
+  background: saddlebrown;
+}
+
+.black {
+  @extend .color-circle;
+  background: black;
+}
+
+.white {
+  @extend .color-circle;
+  background: white;
+}
+
+.purple {
+  @extend .color-circle;
+  background: purple;
+}
+
+.orange {
+  @extend .color-circle;
+  background: orange;
+}
+
+.photo-wrapper {
+  overflow: hidden;
+}
+
+.season-photo-wrapper {
+  @extend .photo-wrapper;
+}
+
+.habitat-photo-wrapper {
+  @extend .photo-wrapper;
+}
+
+.crop-photo {
+  width: 100%;
+}
+
+.season-photo {
+  @extend .crop-photo;
+  margin-top: -260px;
+}
+
+.habitat-photo {
+  @extend .crop-photo;
+}
+
+.photo-text {
+  text-align: center;
+  margin-top: -5px;
+  color: grey;
+  font-size: small;
+}
