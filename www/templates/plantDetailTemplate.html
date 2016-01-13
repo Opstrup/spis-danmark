@@ -57,20 +57,34 @@
 
                 <p>Sæson</p>
 
-                <div class="row" ng-repeat="season in plant.getSeason" ng-if="$index % 2 === 0">
+                <div class="row" ng-repeat="season in plant.getSeason" ng-if="$index % 4 === 0">
 
-                    <div class="col col-50" ng-if="$index <= plant.getSeason.length">
+                    <div class="col col-25" ng-if="$index <= plant.getSeason.length">
                         <div class="season-photo-wrapper">
                             <img class="season-photo" ng-src="{{ seasonPhotos[plant.getSeason[$index]] }}">
                         </div>
                         <div class="photo-text">{{ plant.getSeason[$index] }}</div>
                     </div>
 
-                    <div class="col col-50" ng-if="$index + 1 <= plant.getSeason.length">
+                    <div class="col col-25" ng-if="$index + 1 <= plant.getSeason.length">
                         <div class="season-photo-wrapper">
                             <img class="season-photo" ng-src="{{ seasonPhotos[plant.getSeason[$index + 1]] }}">
                         </div>
                         <div class="photo-text">{{ plant.getSeason[$index + 1] }}</div>
+                    </div>
+
+                    <div class="col col-25" ng-if="$index + 2 <= plant.getSeason.length">
+                        <div class="season-photo-wrapper">
+                            <img class="season-photo" ng-src="{{ seasonPhotos[plant.getSeason[$index + 2]] }}">
+                        </div>
+                        <div class="photo-text">{{ plant.getSeason[$index + 2] }}</div>
+                    </div>
+
+                    <div class="col col-25" ng-if="$index + 3 <= plant.getSeason.length">
+                        <div class="season-photo-wrapper">
+                            <img class="season-photo" ng-src="{{ seasonPhotos[plant.getSeason[$index + 3]] }}">
+                        </div>
+                        <div class="photo-text">{{ plant.getSeason[$index + 3] }}</div>
                     </div>
 
                 </div>
