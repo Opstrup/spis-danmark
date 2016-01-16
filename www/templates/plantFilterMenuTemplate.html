@@ -22,17 +22,13 @@
                     <div class="list list-inset">
                         <label class="item item-input">
                             <i class="icon ion-search placeholder-icon"></i>
-                            <input type="text" placeholder="Plante navn">
+                            <input type="text" placeholder="Plante navn" ng-model="plantName" ng-change="searchByName()">
                         </label>
                     </div>
                 </ion-item>
                 <ion-item>
                     <ul class="list">
                         Sæson <br>
-                        spring = {{season.spring}} <br>
-                        sommer = {{season.summer}} <br>
-                        autumn = {{season.autumn}} <br>
-                        winter = {{season.winter}} <br>
                         <li class="item item-toggle">
                             Forår
                             <label class="toggle toggle-balanced">
@@ -45,7 +41,7 @@
                         <li class="item item-toggle">
                             Sommer
                             <label class="toggle toggle-balanced">
-                                <input type="checkbox" ng-model="season.summer" ng-checked="true">
+                                <input type="checkbox" ng-model="season.summer" ng-change="test()">
                                 <div class="track">
                                     <div class="handle"></div>
                                 </div>
@@ -54,7 +50,7 @@
                         <li class="item item-toggle">
                             Efterår
                             <label class="toggle toggle-balanced">
-                                <input type="checkbox" ng-model="season.autumn" ng-checked="true">
+                                <input type="checkbox" ng-model="season.autumn" ng-change="test()">
                                 <div class="track">
                                     <div class="handle"></div>
                                 </div>
@@ -63,7 +59,7 @@
                         <li class="item item-toggle">
                             Vinter
                             <label class="toggle toggle-balanced">
-                                <input type="checkbox" ng-model="season.winter" ng-checked="true">
+                                <input type="checkbox" ng-model="season.winter" ng-change="test()">
                                 <div class="track">
                                     <div class="handle"></div>
                                 </div>

@@ -11,7 +11,7 @@ angular.module('spis-danmark')
                 var result = new Array();
 
                 if (!spring && !summer && !autumn && !winter)
-                    return plantArray;
+                    return result;
 
                 angular.forEach(plantArray, function (plant) {
                     var hasBeenPushed = false;

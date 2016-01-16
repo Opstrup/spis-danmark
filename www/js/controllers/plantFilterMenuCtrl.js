@@ -22,9 +22,11 @@ angular.module('spis-danmark')
         '$scope',
         '$filter',
         '$rootScope',
+        'plantFactory',
         function ($scope,
                   $filter,
-                  $rootScope) {
+                  $rootScope,
+                  plantFactory) {
 
             $scope.season = {
                 spring: true,
@@ -33,13 +35,19 @@ angular.module('spis-danmark')
                 winter: true
             };
 
+            $scope.plantName = '';
+
             $scope.init = function () {
-                $rootScope.plantArray = $filter('plantSeasonFilter')($rootScope.plantArray, $scope.season.spring, $scope.season.summer, $scope.season.autumn, $scope.season.winter);
+
             };
 
             $scope.test = function () {
-                //console.log('data has changed');
-                //console.log($rootScope.plantArray);
+                _plantArray = plantFactory.getPlantArray();
+                $rootScope.plantArray = $filter('plantSeasonFilter')(_plantArray, $scope.season.spring, $scope.season.summer, $scope.season.autumn, $scope.season.winter);
+            };
+
+            $scope.searchByName = function () {
+
             };
 
             $scope.init();

@@ -81,7 +81,7 @@ describe('Test plant season filter', function () {
 
     it('should return a plant', function () {
         // Arrange.
-        var plant = mockMixedPlantArray[0];
+        var plant = mockMixedPlantArray;
 
         var spring = false;
         var summer = false;
@@ -92,7 +92,7 @@ describe('Test plant season filter', function () {
         var result = $filter('plantSeasonFilter')(plant, spring, summer, autumn, winter);
 
         // Assert.
-        expect(result).toEqual(mockMixedPlantArray[0]);
+        expect(result).toEqual([]);
     });
 
     it('should return a plant when spring is true and a plant got spring season', function () {
