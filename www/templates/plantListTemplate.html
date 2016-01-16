@@ -2,8 +2,9 @@
     <div class="bar bar-header bar-stable">
         <h1 class="title">Spis-danmark</h1>
     </div>
+
     <ion-content class="has-header" scroll="true">
-        
+
         <div class="row row-center" ng-show="showSpinner">
             <div class="installDBMsg col">
                 <p>Installere database</p>
@@ -12,7 +13,8 @@
         </div>
 
         <ul class="list">
-            <a class="item item-avatar item-icon-right" ng-repeat="plant in plantArray" ng-click="showPlantDetailView(plant.getID)">
+            <a class="item item-avatar item-icon-right" ng-repeat="plant in plantArray | plantSeasonFilter:true:true:true:true"
+               ng-click="showPlantDetailView(plant.getID)">
                 <img ng-src="{{ plant.getPhoto[0] }}">
                 <h2>{{ plant.getName }}</h2>
                 <p>{{ plant.getNameLatin }}</p>

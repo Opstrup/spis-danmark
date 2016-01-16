@@ -55,7 +55,7 @@ angular.module('spis-danmark')
             };
 
             $scope.showPlantListView = function () {
-                navigationServices.navigate('tab.plantList', '', 'right');
+                navigationServices.navigate('tab.plantFilterMenu.plantList', '', 'right');
             };
 
             $scope.showPlantPhotos = function (plantID) {

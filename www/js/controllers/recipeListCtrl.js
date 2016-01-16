@@ -23,7 +23,7 @@ angular.module('spis-danmark')
         function ($scope) {
 
             $scope.init = function() {
-                console.log('Recipe List Ctrl');
+
             };
 
             $scope.init();

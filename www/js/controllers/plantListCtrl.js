@@ -7,7 +7,7 @@ angular.module('spis-danmark')
 
     .config(['$stateProvider', function ($stateProvider) {
         $stateProvider
-            .state('tab.plantList', {
+            .state('tab.plantFilterMenu.plantList', {
                 url: '/plant-list',
                 views: {
                     'tab-plantList': {
@@ -24,14 +24,17 @@ angular.module('spis-danmark')
         'navigationServices',
         '$timeout',
         '$ionicPlatform',
+        '$rootScope',
+        '$filter',
         function ($scope,
                   plantFactory,
                   navigationServices,
                   $timeout,
-                  $ionicPlatform) {
+                  $ionicPlatform,
+                  $rootScope,
+                  $filter) {
 
             $scope.init = function () {
-                console.log('Plant List Ctrl');
                 // if !database == show spinner 5sec
                 if (!window.localStorage['db'])
                     waitForPlantsArray();
@@ -39,7 +42,7 @@ angular.module('spis-danmark')
                 $ionicPlatform.ready(function () {
                     // Check if database already is installed
                     if (window.localStorage['db'])
-                        $scope.plantArray = plantFactory.getPlantArray();
+                        $rootScope.plantArray = plantFactory.getPlantArray();
                 });
             };
 
@@ -53,7 +56,7 @@ angular.module('spis-danmark')
                 var milliseconds = 5000;
                 $scope.showSpinner = true;
                 $timeout(function () {
-                    $scope.plantArray = plantFactory.getPlantArray();
+                    $rootScope.plantArray = plantFactory.getPlantArray();
                     $scope.showSpinner = false;
                 }, milliseconds);
             };

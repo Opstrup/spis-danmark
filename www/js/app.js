@@ -53,5 +53,5 @@ angular.module('spis-danmark', [
             });
 
         $ionicConfigProvider.tabs.position('bottom');
-        $urlRouterProvider.otherwise('/tab/plant-list');
+        $urlRouterProvider.otherwise('/tab/plantFilterMenu/plant-list');
     }]);
