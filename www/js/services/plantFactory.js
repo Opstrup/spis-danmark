@@ -11,8 +11,8 @@ angular.module('spis-danmark')
         function (Plant,
                   dbServices) {
             var _plantArray = new Array();
-            var _mockPlantArray = {
-                plant0: {
+            var _mockPlantArray = [
+                {
                     getID: 1,
                     getName: 'Første plante',
                     getNameLatin: 'Latinsk navn',
@@ -34,7 +34,7 @@ angular.module('spis-danmark')
                     },
                     getSize: {}
                 },
-                plant1: {
+                {
                     getID: 2,
                     getName: 'Anden plante',
                     getNameLatin: 'Latinsk navn',
@@ -56,7 +56,7 @@ angular.module('spis-danmark')
                     },
                     getSize: {}
                 },
-                plant2: {
+                {
                     getID: 3,
                     getName: 'Tredje plante',
                     getNameLatin: 'Latinsk navn',
@@ -79,7 +79,7 @@ angular.module('spis-danmark')
                     },
                     getSize: {}
                 },
-                plant3: {
+                {
                     getID: 4,
                     getName: 'Fjerde plante',
                     getNameLatin: 'Latinsk navn',
@@ -103,7 +103,7 @@ angular.module('spis-danmark')
                     },
                     getSize: {}
                 },
-                plant4: {
+                {
                     getID: 5,
                     getName: 'Femte plante',
                     getNameLatin: 'Latinsk navn',
@@ -127,7 +127,7 @@ angular.module('spis-danmark')
                     },
                     getSize: {}
                 },
-                plant5: {
+                {
                     getID: 6,
                     getName: 'Sjette plante',
                     getNameLatin: 'Latinsk navn',
@@ -151,7 +151,7 @@ angular.module('spis-danmark')
                     },
                     getSize: {}
                 }
-            };
+            ];
 
             var setAttribueForPlant = function (helperTable, plantID, attributeTable, attributeArray, attribute) {
                 dbServices.getRecordsWithPlantId(helperTable, plantID).then(function (res) {
@@ -209,24 +209,24 @@ angular.module('spis-danmark')
 
             var createPlantArray = function () {
                 //Create and return array of all the plants in the system.
-                    var plantArray = new Array();
-                    try {
-                        dbServices.getAllRecordsForTable('plants').then(function (res) {
-                            if (res.rows.length > 0) {
-                                for (var i = 0; i < res.rows.length; i++) {
-                                    var plantData = res.rows.item(i);
-                                    plantArray.push(createPlant(plantData));
-                                }
+                var plantArray = new Array();
+                try {
+                    dbServices.getAllRecordsForTable('plants').then(function (res) {
+                        if (res.rows.length > 0) {
+                            for (var i = 0; i < res.rows.length; i++) {
+                                var plantData = res.rows.item(i);
+                                plantArray.push(createPlant(plantData));
                             }
-                        }, function (err) {
-                            console.error('Cannot create plant array before the table is created', err);
-                        });
-                    }
-                    catch (err) {
-                        console.error(err.message);
-                    }
+                        }
+                    }, function (err) {
+                        console.error('Cannot create plant array before the table is created', err);
+                    });
+                }
+                catch (err) {
+                    console.error(err.message);
+                }
 
-                    return plantArray;
+                return plantArray;
             };
 
             return {

@@ -28,26 +28,41 @@ angular.module('spis-danmark')
                   $rootScope,
                   plantFactory) {
 
-            $scope.season = {
-                spring: true,
-                summer: true,
-                autumn: true,
-                winter: true
+
+            $scope.filter = {
+                name: '',
+                season: {
+                    spring: true,
+                    summer: true,
+                    autumn: true,
+                    winter: true
+                }
             };
 
-            $scope.plantName = '';
+
+            $scope.plant = {
+                plantName: ''
+            };
 
             $scope.init = function () {
 
             };
 
+            $scope.filterList = function () {
+                _plantArray = plantFactory.getPlantArray();
+                _plantArray = $filter('filter')(_plantArray, $scope.filter.name);
+                $rootScope.plantArray = $filter('plantSeasonFilter')(_plantArray, $scope.filter.season.spring, $scope.filter.season.summer, $scope.filter.season.autumn, $scope.filter.season.winter);
+            };
+
             $scope.test = function () {
                 _plantArray = plantFactory.getPlantArray();
-                $rootScope.plantArray = $filter('plantSeasonFilter')(_plantArray, $scope.season.spring, $scope.season.summer, $scope.season.autumn, $scope.season.winter);
+                $rootScope.plantArray = $filter('plantSeasonFilter')(_plantArray, $scope.filter.season.spring, $scope.filter.season.summer, $scope.filter.season.autumn, $scope.filter.season.winter);
             };
 
             $scope.searchByName = function () {
-
+                _plantArray = plantFactory.getPlantArray();
+                console.log($scope.plant.plantName);
+                $rootScope.plantArray = $filter('filter')(_plantArray, $scope.filter.name);
             };
 
             $scope.init();
