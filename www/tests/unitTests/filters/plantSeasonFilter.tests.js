@@ -4,7 +4,7 @@
 
 'use strict';
 
-describe('Test plant season filter', function () {
+describe('season filter tests', function () {
 
     var $filter, plant, mockMixedPlantArray, mockPlantArraySummer ,mockPlantArrayWinter, mockPlantArraySpring, mockPlantArrayAutumn;
 
@@ -79,7 +79,7 @@ describe('Test plant season filter', function () {
         return result;
     }
 
-    it('should return a plant', function () {
+    it('should return empty array', function () {
         // Arrange.
         var plant = mockMixedPlantArray;
 
