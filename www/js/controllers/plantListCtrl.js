@@ -25,14 +25,12 @@ angular.module('spis-danmark')
         '$timeout',
         '$ionicPlatform',
         '$rootScope',
-        '$filter',
         function ($scope,
                   plantFactory,
                   navigationServices,
                   $timeout,
                   $ionicPlatform,
-                  $rootScope,
-                  $filter) {
+                  $rootScope) {
 
             $scope.init = function () {
                 // if !database == show spinner 5sec

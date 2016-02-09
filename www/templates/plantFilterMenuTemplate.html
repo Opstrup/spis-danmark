@@ -22,14 +22,18 @@
                     <div class="list list-inset">
                         <label class="item item-input">
                             <i class="icon ion-search placeholder-icon"></i>
-                            <input type="text" placeholder="Plante navn" ng-model="filter.name" ng-change="filterList()">
+                            <input type="text" placeholder="Plante navn" ng-model="filter.name"
+                                   ng-change="filterList()">
                         </label>
                     </div>
                 </ion-item>
                 <ion-item>
                     <ul class="list">
-                        Sæson <br>
-                        <li class="item item-toggle">
+                        <li class="item" ng-click="toggleSeasons()">
+                            Sæson
+                            <i class="icon {{seasonArrow}}" style="margin-left: 67%"></i>
+                        </li>
+                        <li class="item item-toggle" ng-show="showSeasons">
                             Forår
                             <label class="toggle toggle-balanced">
                                 <input type="checkbox" ng-model="filter.season.spring" ng-change="filterList()">
@@ -38,7 +42,7 @@
                                 </div>
                             </label>
                         </li>
-                        <li class="item item-toggle">
+                        <li class="item item-toggle" ng-show="showSeasons">
                             Sommer
                             <label class="toggle toggle-balanced">
                                 <input type="checkbox" ng-model="filter.season.summer" ng-change="filterList()">
@@ -47,7 +51,7 @@
                                 </div>
                             </label>
                         </li>
-                        <li class="item item-toggle">
+                        <li class="item item-toggle" ng-show="showSeasons">
                             Efterår
                             <label class="toggle toggle-balanced">
                                 <input type="checkbox" ng-model="filter.season.autumn" ng-change="filterList()">
@@ -56,7 +60,7 @@
                                 </div>
                             </label>
                         </li>
-                        <li class="item item-toggle">
+                        <li class="item item-toggle" ng-show="showSeasons">
                             Vinter
                             <label class="toggle toggle-balanced">
                                 <input type="checkbox" ng-model="filter.season.winter" ng-change="filterList()">
@@ -69,51 +73,62 @@
                 </ion-item>
                 <ion-item>
                     <ul class="list">
-                        Levesteder
-                        <li class="item item-toggle">
+                        <li class="item" ng-click="toggleHabitats()">
+                            Levesteder
+                            <i class="icon {{habitatArrow}}" style="margin-left: 52%"></i>
+                        </li>
+                        <li class="item item-toggle" ng-show="showHabitats">
                             Agerland
                             <label class="toggle toggle-balanced">
-                                <input type="checkbox">
+                                <input type="checkbox" ng-model="filter.habitat.farmland" ng-change="filterList()">
                                 <div class="track">
                                     <div class="handle"></div>
                                 </div>
                             </label>
                         </li>
-                        <li class="item item-toggle">
+                        <li class="item item-toggle" ng-show="showHabitats">
                             Vådområde
                             <label class="toggle toggle-balanced">
-                                <input type="checkbox">
+                                <input type="checkbox" ng-model="filter.habitat.wetland" ng-change="filterList()">
                                 <div class="track">
                                     <div class="handle"></div>
                                 </div>
                             </label>
                         </li>
-                        <li class="item item-toggle">
+                        <li class="item item-toggle" ng-show="showHabitats">
                             Skov og hegn
                             <label class="toggle toggle-balanced">
-                                <input type="checkbox">
+                                <input type="checkbox" ng-model="filter.habitat.forest" ng-change="filterList()">
                                 <div class="track">
                                     <div class="handle"></div>
                                 </div>
                             </label>
                         </li>
-                        <li class="item item-toggle">
+                        <li class="item item-toggle" ng-show="showHabitats">
                             Hede
                             <label class="toggle toggle-balanced">
-                                <input type="checkbox">
+                                <input type="checkbox" ng-model="filter.habitat.moor" ng-change="filterList()">
                                 <div class="track">
                                     <div class="handle"></div>
                                 </div>
                             </label>
                         </li>
-                        <li class="item item-toggle">
+                        <li class="item item-toggle" ng-show="showHabitats">
                             Kyst
                             <label class="toggle toggle-balanced">
-                                <input type="checkbox">
+                                <input type="checkbox" ng-model="filter.habitat.coast" ng-change="filterList()">
                                 <div class="track">
                                     <div class="handle"></div>
                                 </div>
                             </label>
+                        </li>
+                    </ul>
+                </ion-item>
+                <ion-item>
+                    <ul class="list">
+                        <li class="item" ng-click="toggleColors()">
+                            Farver
+                            <i class="icon {{colorArrow}}" style="margin-left: 69%"></i>
                         </li>
                     </ul>
                 </ion-item>

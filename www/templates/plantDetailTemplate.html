@@ -9,7 +9,7 @@
 
         <ion-nav-buttons side="left">
             <button class="button button-icon button-clear ion-ios-arrow-left" ng-click="showPlantListView()">
-                Plante liste
+                Tilbage
             </button>
         </ion-nav-buttons>
     </ion-nav-bar>
@@ -23,7 +23,7 @@
                 <h2>{{ plant.getName }}</h2>
                 <p>{{ plant.getNameLatin }}</p>
                 <i class="icon ion-ios-book-outline"></i>
-                <i class="icon ion-ios-location-outline" style="right: 60px"></i>
+                <i class="icon ion-ios-location-outline" style="right: 60px" ng-click="showRegisterPlantActionSheet()"></i>
             </div>
 
             <div class="item item-body">
