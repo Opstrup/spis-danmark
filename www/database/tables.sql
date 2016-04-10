@@ -10,3 +10,5 @@ CREATE TABLE IF NOT EXISTS seasons (id integer, season text);
 CREATE TABLE IF NOT EXISTS plant_seasons (id integer, plant_id integer, season_id integer);
 CREATE TABLE IF NOT EXISTS sizes (id integer, size text);
 CREATE TABLE IF NOT EXISTS plant_sizes (id integer, plant_id integer, size_id integer);
+CREATE TABLE IF NOT EXISTS registrations (id integer, timestamp text, lat text, long text);
+CREATE TABLE IF NOT EXISTS plant_registrations (id integer, plant_id integer, registration_id integer);

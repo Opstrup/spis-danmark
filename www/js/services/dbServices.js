@@ -29,8 +29,9 @@ angular.module('spis-danmark')
                         var count = 0;
                         angular.forEach(dbConverterServices.convertStringToTables(dataString), function (query) {
                             $cordovaSQLite.execute(db, query).then(function (res) {
-                                console.log('created table!', res.rows);
                                 count++;
+                                
+                                /* Only start populateTables() when all tables has been created */
                                 if (count == numberOfTables) {
                                     populateTables();
                                 }
@@ -73,10 +74,9 @@ angular.module('spis-danmark')
                     //populateTables();
                     window.localStorage['db'] = true;
                 },
-                addRecord: function (table, data) {
+                addRecord: function (query, data) {
                     // Add a record to the table
-                    /*var query = 'INSERT INTO ' + table + ' (id, plant_id, color_id) VALUES (?, ?, ?)';
-                     $cordovaSQLite.execute(db, query, data);*/
+                     $cordovaSQLite.execute(db, query, data);
                 },
                 removeRecord: function (table, id) {
                     // Remove a record

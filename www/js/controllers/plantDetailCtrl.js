@@ -28,12 +28,18 @@ angular.module('spis-danmark')
         'navigationServices',
         'stringShorterServices',
         '$ionicActionSheet',
+        '$cordovaGeolocation',
+        '$ionicPopup',
+        'registrationServices',
         function ($scope,
                   plantFactory,
                   $stateParams,
                   navigationServices,
                   stringShorterServices,
-                  $ionicActionSheet) {
+                  $ionicActionSheet,
+                  $cordovaGeolocation,
+                  $ionicPopup,
+                  registrationServices) {
 
             $scope.init = function () {
                 $scope.plant = plantFactory.getPlantWithID($stateParams.data);
@@ -42,18 +48,15 @@ angular.module('spis-danmark')
             };
 
             $scope.showRegisterPlantActionSheet = function () {
-
                 $ionicActionSheet.show({
                     titleText: 'Register plante på nuværende position',
                     buttons: [
-                        { text: '<i class="icon ion-ios-location-outline"></i> Register' }
+                        {text: '<i class="icon ion-ios-location-outline"></i> Register'}
                     ],
-                    //destructiveText: 'Delete',
                     cancelText: 'Cancel',
-                    cancel: function() {
-
+                    cancel: function () {
                     },
-                    buttonClicked: function(index) {
+                    buttonClicked: function (index) {
 
                         if (index == 0) {
                             registerPlant();
@@ -95,8 +98,28 @@ angular.module('spis-danmark')
                 navigationServices.navigate('tab.plantHistory', {data: plantID}, 'left');
             };
 
-            function registerPlant () {
-                console.log('register plant');
+            function registerPlant() {
+
+                $ionicPopup.alert({
+                    title: 'Registering af plante',
+                    template: $scope.plant.getName + ' er registeret på din nuværende position.'
+                });
+
+                /* Getting coordinates for registration */
+                var posOptions = {timeout: 10000, enableHighAccuracy: false};
+                $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
+                    var lat = position.coords.latitude;
+                    var long = position.coords.longitude;
+
+                    /* Save coords to db here */
+                    console.log('Save info to db');
+                    console.log('coords:', lat, long);
+                    console.log($scope.plant.getName, $scope.plant.getID);
+                    console.log(Date());
+                    registrationServices.registerPlant(Date(), lat, long, $scope.plant.getID)
+                }, function (err) {
+                    // error
+                });
             };
 
             $scope.init();
