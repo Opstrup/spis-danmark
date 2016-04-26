@@ -2,7 +2,7 @@
 
 
 angular.module('spis-danmark', [
-        'ionic',
+        'ionic','ionic.service.core',
         'ngCordova'
     ])
 

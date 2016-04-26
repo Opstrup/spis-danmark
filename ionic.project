@@ -1,6 +1,6 @@
 {
   "name": "spis-danmark",
-  "app_id": "",
+  "app_id": "e402ae0f",
   "gulpStartupTasks": [
     "sass",
     "watch"

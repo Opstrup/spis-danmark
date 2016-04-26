@@ -9823,3 +9823,42 @@ a.button {
 
 .scroll {
   height: 100%; }
+
+/**
+ * Created by Opstrup on 26/04/2016.
+ */
+.recipe-wrapper {
+  padding: 0 !important; }
+
+.photo-cell {
+  height: 200px; }
+
+.heart-and-cloud-wrapper {
+  font-size: 2.5em;
+  padding-top: 5%;
+  color: whitesmoke; }
+
+.cook-time-wrapper {
+  position: relative;
+  top: 105px; }
+
+.cook-time {
+  opacity: 0.8;
+  background-color: #4E4E4E;
+  color: whitesmoke;
+  padding: 6px 20px 6px 15px;
+  font-size: large; }
+
+.cook-time-minutes {
+  opacity: 1 !important;
+  font-size: larger; }
+
+.recipe-info-cell-wrapper {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 20px;
+  font-size: medium; }
+
+.star-ratings {
+  color: silver;
+  font-size: 1.5em; }

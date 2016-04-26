@@ -6,7 +6,31 @@
     </ion-nav-bar>
 
     <ion-content class="has-header" scroll="true">
-        <h1>Opskrifter</h1>
+
+        <div ng-repeat="recipe in dummyRecipes">
+            <div class="col row recipe-wrapper">
+                <div class="photo-cell" back-img="{{recipe.photo}}">
+                    <div class="heart-and-cloud-wrapper col-offset-75">
+                        <i class="ion-ios-heart-outline"></i>
+                        <i class="ion-ios-cloud-outline"></i>
+                    </div>
+
+                    <div class="cook-time-wrapper">
+                        <span class="cook-time">
+                            <span class="cook-time-minutes">{{recipe.cookTime}}</span>min</span>
+                    </div>
+                </div>
+                <div class="recipe-info-cell-wrapper">
+                    <div>{{recipe.title}}</div>
+                    <div>Anmeldelser:
+                        <span class="star-ratings" ng-repeat="star in recipe.stars">
+                            <i class="ion-android-star" ng-if="star == 1"></i>
+                            <i class="ion-android-star-half" ng-if="star == 0.5"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </ion-content>
 </ion-view>
